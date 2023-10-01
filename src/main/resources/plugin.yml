@@ -1,3 +1,10 @@
 name: PickaxeLeveling
 version: '${project.version}'
 main: me.bluedyaishela.pickaxeleveling.PickaxeLeveling
+commands:
+  pickaxeleveling:
+    description: none
+    permission: pickaxeleveling.use
+  picklevel:
+    description: none
+    permission: pickaxeleveling.use

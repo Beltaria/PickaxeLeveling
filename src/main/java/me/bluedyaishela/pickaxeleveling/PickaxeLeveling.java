@@ -7,7 +7,10 @@ public final class PickaxeLeveling extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        ItemManager.init();
 
+        this.getCommand("pickaxeleveling").setExecutor(new Commands());
+        this.getCommand("picklevel").setExecutor(new Commands());
     }
 
     @Override
