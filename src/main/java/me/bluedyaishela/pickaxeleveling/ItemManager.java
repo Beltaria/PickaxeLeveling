@@ -1,5 +1,6 @@
 package me.bluedyaishela.pickaxeleveling;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -31,6 +32,7 @@ public class ItemManager {
         lore.add("");
         lore.add("§8» §7Niveau : §f1 §7/ §f20");
         lore.add("§8» §7Progression : §f0 §7/ §f100");
+//        lore.add(ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Progression : " + ChatColor.WHITE + 0 + ChatColor.GRAY + " / " + ChatColor.WHITE + 100);
         lore.add("");
         lore.add("§7§m-------§8§m-------§7§m-------");
 

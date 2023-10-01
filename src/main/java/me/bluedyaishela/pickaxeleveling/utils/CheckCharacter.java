@@ -22,4 +22,20 @@ public class CheckCharacter {
 
         return integers;
     }
+
+    public String setTwoIntegerInString(List<Integer> integers, String chain)
+    {
+        StringBuilder newChain = new StringBuilder(chain);
+
+        for (int i = 0; i < integers.size(); i++) {
+            String oldInteger = String.valueOf(integers.get(i));
+            String newInteger = "4"; // Remplacez ici par la nouvelle valeur souhaitée (dans cet exemple, "4")
+            String regex = "\\b" + oldInteger + "\\b"; // Utilisez \\b pour correspondre à des mots entiers
+
+            newChain = new StringBuilder(newChain.toString().replaceAll(regex, newInteger));
+        }
+
+
+        return newChain.toString();
+    }
 }
