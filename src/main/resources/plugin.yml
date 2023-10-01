@@ -1,0 +1,3 @@
+name: PickaxeLeveling
+version: '${project.version}'
+main: me.bluedyaishela.pickaxeleveling.PickaxeLeveling
