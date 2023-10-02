@@ -26,7 +26,25 @@ public class Pickaxe implements Listener {
     public Pickaxe() {
         levels.put(1, new PickaxeLevel("Pioche du Novice", 20, Material.WOOD_PICKAXE));
         levels.put(2, new PickaxeLevel("§7Pioche en Bois", 50, Material.WOOD_PICKAXE));
-        levels.put(3, new PickaxeLevel("§8Pioche de Pierre", 100, Material.STONE_PICKAXE));
+        levels.put(3, new PickaxeLevel("§8Pioche de Pierre", 51, Material.STONE_PICKAXE));
+        levels.put(4, new PickaxeLevel("§8Pioche de Cuivre", 10, Material.STONE_PICKAXE));
+        levels.put(5, new PickaxeLevel("§fPioche de Fer", 10, Material.IRON_PICKAXE));
+        levels.put(6, new PickaxeLevel("§fPioche d'Acier", 10, Material.IRON_PICKAXE));
+        levels.put(7, new PickaxeLevel("§fPioche d'Argent", 10, Material.IRON_PICKAXE));
+        levels.put(8, new PickaxeLevel("§ePioche d'Or", 10, Material.GOLD_PICKAXE));
+        levels.put(9, new PickaxeLevel("§aPioche d'Émeraude", 10, Material.GOLD_PICKAXE));
+        levels.put(10, new PickaxeLevel("§bPioche de Saphir", 10, Material.GOLD_PICKAXE));
+        levels.put(11, new PickaxeLevel("§cPioche de Rubis", 10, Material.GOLD_PICKAXE));
+        levels.put(12, new PickaxeLevel("§bPioche en Diamant", 10, Material.DIAMOND_PICKAXE));
+        levels.put(13, new PickaxeLevel("§0Pioche d'Obsidienne", 10, Material.DIAMOND_PICKAXE));
+        levels.put(14, new PickaxeLevel("§bPioche d'Adamantium", 10, Material.DIAMOND_PICKAXE));
+        levels.put(15, new PickaxeLevel("§2Pioche de Mithril", 10, Material.DIAMOND_PICKAXE));
+        levels.put(16, new PickaxeLevel("§8Pioche de Titan", 10, Material.DIAMOND_PICKAXE));
+        levels.put(17, new PickaxeLevel("§fPioche §fA§as§bt§fr§aa§bl§fe", 10, Material.DIAMOND_PICKAXE));
+        levels.put(18, new PickaxeLevel("§dPioche Éthérée", 10, Material.DIAMOND_PICKAXE));
+        levels.put(19, new PickaxeLevel("§ePioche Légendaire", 10, Material.DIAMOND_PICKAXE));
+        levels.put(20, new PickaxeLevel("§ePioche de Salomon", 10, Material.DIAMOND_PICKAXE));
+
     }
 
     private int getPickaxeLevel(List<String> lore)
