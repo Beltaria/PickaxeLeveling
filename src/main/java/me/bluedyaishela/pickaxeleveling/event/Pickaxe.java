@@ -87,10 +87,10 @@ public class Pickaxe implements Listener {
             index++;
         }
         itemMeta.setLore(lore);
-        itemMeta.setUnbreakable(true);
+        itemMeta.spigot().setUnbreakable(true);
 
         itemStack.setItemMeta(itemMeta);
-        itemStack.setDurability((short) 59);
+        itemStack.setDurability((short) 0);
 
         return itemStack;
     }
@@ -127,6 +127,7 @@ public class Pickaxe implements Listener {
                             // Effectuer la montée de niveau
                             player.sendMessage("§aNiveau supérieur !");
                             ItemStack newItemStack = this.nextPickaxeLevel(itemStack);
+                            player.getInventory().remove(itemStack);
                             player.getInventory().addItem(newItemStack);
                         } else {
                             integers.set(2, firstInteger);
