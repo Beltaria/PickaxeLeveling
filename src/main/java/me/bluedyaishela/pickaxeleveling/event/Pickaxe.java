@@ -4,6 +4,7 @@ import me.bluedyaishela.pickaxeleveling.entity.PickaxeLevel;
 import me.bluedyaishela.pickaxeleveling.utils.CheckCharacter;
 import me.bluedyaishela.pickaxeleveling.utils.CheckPickaxe;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -24,26 +25,26 @@ public class Pickaxe implements Listener {
     private final int maxLevel = 20;
 
     public Pickaxe() {
-        levels.put(1, new PickaxeLevel("Pioche du Novice", 20, Material.WOOD_PICKAXE));
-        levels.put(2, new PickaxeLevel("§7Pioche en Bois", 50, Material.WOOD_PICKAXE));
-        levels.put(3, new PickaxeLevel("§8Pioche de Pierre", 51, Material.STONE_PICKAXE));
-        levels.put(4, new PickaxeLevel("§8Pioche de Cuivre", 10, Material.STONE_PICKAXE));
-        levels.put(5, new PickaxeLevel("§fPioche de Fer", 10, Material.IRON_PICKAXE));
-        levels.put(6, new PickaxeLevel("§fPioche d'Acier", 10, Material.IRON_PICKAXE));
-        levels.put(7, new PickaxeLevel("§fPioche d'Argent", 10, Material.IRON_PICKAXE));
-        levels.put(8, new PickaxeLevel("§ePioche d'Or", 10, Material.GOLD_PICKAXE));
-        levels.put(9, new PickaxeLevel("§aPioche d'Émeraude", 10, Material.GOLD_PICKAXE));
-        levels.put(10, new PickaxeLevel("§bPioche de Saphir", 10, Material.GOLD_PICKAXE));
-        levels.put(11, new PickaxeLevel("§cPioche de Rubis", 10, Material.GOLD_PICKAXE));
-        levels.put(12, new PickaxeLevel("§bPioche en Diamant", 10, Material.DIAMOND_PICKAXE));
-        levels.put(13, new PickaxeLevel("§0Pioche d'Obsidienne", 10, Material.DIAMOND_PICKAXE));
-        levels.put(14, new PickaxeLevel("§bPioche d'Adamantium", 10, Material.DIAMOND_PICKAXE));
-        levels.put(15, new PickaxeLevel("§2Pioche de Mithril", 10, Material.DIAMOND_PICKAXE));
-        levels.put(16, new PickaxeLevel("§8Pioche de Titan", 10, Material.DIAMOND_PICKAXE));
-        levels.put(17, new PickaxeLevel("§fPioche §fA§as§bt§fr§aa§bl§fe", 10, Material.DIAMOND_PICKAXE));
-        levels.put(18, new PickaxeLevel("§dPioche Éthérée", 10, Material.DIAMOND_PICKAXE));
-        levels.put(19, new PickaxeLevel("§ePioche Légendaire", 10, Material.DIAMOND_PICKAXE));
-        levels.put(20, new PickaxeLevel("§ePioche de Salomon", 10, Material.DIAMOND_PICKAXE));
+        levels.put(1, new PickaxeLevel("§7Pioche du Novice", 20, Material.WOOD_PICKAXE, "§7", "§8"));
+        levels.put(2, new PickaxeLevel("§7Pioche en Bois", 5, Material.WOOD_PICKAXE, "§7", "§8"));
+        levels.put(3, new PickaxeLevel("§8Pioche de Pierre", 5, Material.STONE_PICKAXE, "§7", "§8"));
+        levels.put(4, new PickaxeLevel("§8Pioche de Cuivre", 10, Material.STONE_PICKAXE, "§7", "§8"));
+        levels.put(5, new PickaxeLevel("§fPioche de Fer", 10, Material.IRON_PICKAXE, "§7", "§8"));
+        levels.put(6, new PickaxeLevel("§fPioche d'Acier", 10, Material.IRON_PICKAXE, "§7", "§8"));
+        levels.put(7, new PickaxeLevel("§fPioche d'Argent", 10, Material.IRON_PICKAXE, "§7", "§8"));
+        levels.put(8, new PickaxeLevel("§6Pioche d'Or", 10, Material.GOLD_PICKAXE, "§e", "§6"));
+        levels.put(9, new PickaxeLevel("§6Pioche d'Émeraude", 10, Material.GOLD_PICKAXE, "§e", "§6"));
+        levels.put(10, new PickaxeLevel("§6Pioche de Saphir", 10, Material.GOLD_PICKAXE, "§e", "§6"));
+        levels.put(11, new PickaxeLevel("§6Pioche de Rubis", 10, Material.GOLD_PICKAXE, "§e", "§6"));
+        levels.put(12, new PickaxeLevel("§9Pioche en Diamant", 10, Material.DIAMOND_PICKAXE, "§9", "§1"));
+        levels.put(13, new PickaxeLevel("§9Pioche d'Obsidienne", 10, Material.DIAMOND_PICKAXE, "§9", "§1"));
+        levels.put(14, new PickaxeLevel("§9Pioche d'Adamantium", 10, Material.DIAMOND_PICKAXE, "§9", "§1"));
+        levels.put(15, new PickaxeLevel("§9Pioche de Mithril", 10, Material.DIAMOND_PICKAXE, "§9", "§1"));
+        levels.put(16, new PickaxeLevel("§9Pioche de Titan", 10, Material.DIAMOND_PICKAXE, "§9", "§1"));
+        levels.put(17, new PickaxeLevel("§fPioche §fA§as§bt§fr§aa§bl§fe", 10, Material.DIAMOND_PICKAXE, "§9", "§1"));
+        levels.put(18, new PickaxeLevel("§dPioche Éthérée", 10, Material.DIAMOND_PICKAXE, "§a", "§2"));
+        levels.put(19, new PickaxeLevel("§dPioche Légendaire", 10, Material.DIAMOND_PICKAXE, "§d", "§5"));
+        levels.put(20, new PickaxeLevel("§ePioche de Salomon", 10, Material.DIAMOND_PICKAXE, "§a", "§2"));
     }
 
     private int getPickaxeLevel(List<String> lore)
@@ -52,8 +53,8 @@ public class Pickaxe implements Listener {
         {
             if (line.contains("Niveau"))
             {
-                List<Integer> integers = checkCharacter.getIntegersInString(line);
-                return integers.get(2);
+                List<Integer> integers = checkCharacter.getIntegersInStringByWords(line);
+                return integers.get(0);
             }
         }
         return 0;
@@ -61,7 +62,6 @@ public class Pickaxe implements Listener {
 
     private ItemStack nextPickaxeLevel(ItemStack itemStack)
     {
-        // A faire
         ItemMeta itemMeta = itemStack.getItemMeta();
         List<String> lore = itemMeta.getLore();
 
@@ -72,34 +72,58 @@ public class Pickaxe implements Listener {
 
         itemStack.setType(pickaxeLevel.getMaterial());
         itemMeta.setDisplayName(pickaxeLevel.getName());
+        String light_color = pickaxeLevel.getLight_color();
+        String dark_color = pickaxeLevel.getDark_color();
 
         int index = 0;
 
+        List<String> stringPickaxe = new ArrayList<>();
+        stringPickaxe.add(light_color);
+        stringPickaxe.add(dark_color);
+        stringPickaxe.add(light_color);
+        stringPickaxe.add(dark_color);
+
+        List<String> stringMiner = new ArrayList<>();
+        stringMiner.add(light_color);
+        stringMiner.add(dark_color);
+        stringMiner.add(light_color);
+
+        List<String> stringLevel = new ArrayList<>();
+        stringLevel.add(dark_color);
+        stringLevel.add(light_color);
+        stringLevel.add(light_color);
+
+        List<String> stringProgression = new ArrayList<>();
+        stringProgression.add(dark_color);
+        stringProgression.add(light_color);
+        stringProgression.add(light_color);
+
         List<Integer> integersLevel = new ArrayList<>();
-        integersLevel.add(8);
-        integersLevel.add(7);
         integersLevel.add(newLevel);
-        integersLevel.add(7);
-        integersLevel.add(this.maxLevel);
+        integersLevel.add(maxLevel);
 
         List<Integer> integersProgression = new ArrayList<>();
-        integersProgression.add(8);
-        integersProgression.add(7);
         integersProgression.add(0);
-        integersProgression.add(7);
         integersProgression.add(pickaxeLevel.getNecessaryBlocks());
 
         for (String line : lore)
         {
+            if (line.contains("--"))
+            {
+                String bar = light_color + "§m-------" + dark_color + "§m-------" + light_color + "§m-------";
+                lore.set(index, bar);
+            }
+            if (line.contains("Pioche")) lore.set(index, checkCharacter.getNewLoreLevelUp(stringPickaxe, line));
+            if (line.contains("monde minage")) lore.set(index, checkCharacter.getNewLoreLevelUp(stringMiner, line));
             if (line.contains("Niveau"))
             {
-                String newLoreLevel = checkCharacter.setIntegersInString(integersLevel, line);
-                lore.set(index, newLoreLevel);
+                String levelLore = checkCharacter.getNewLoreLevelUp(stringLevel, line);
+                lore.set(index, checkCharacter.setIntegersInStringByWords(integersLevel, levelLore));
             }
             if (line.contains("Progression"))
             {
-                String newLoreProgression = checkCharacter.setIntegersInString(integersProgression, line);
-                lore.set(index, newLoreProgression);
+                String progressionLore = checkCharacter.getNewLoreLevelUp(stringProgression, line);
+                lore.set(index, checkCharacter.setIntegersInStringByWords(integersProgression, progressionLore));
             }
             index++;
         }
@@ -108,6 +132,7 @@ public class Pickaxe implements Listener {
 
         itemStack.setItemMeta(itemMeta);
         itemStack.setDurability((short) 0);
+//        itemStack.addUnsafeEnchantment(Enchantment.DIG_SPEED, 10);
 
         return itemStack;
     }

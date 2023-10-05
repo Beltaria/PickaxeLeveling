@@ -31,7 +31,7 @@ public class ItemManager {
         lore.add("§7indéfiniment dans le §8monde minage§7.");
         lore.add("");
         lore.add("§8» §7Niveau : §f1 §7/ §f20");
-        lore.add("§8» §7Progression : §f0 §7/ §f100");
+        lore.add("§8» §7Progression : §f0 §7/ §f5");
 //        lore.add(ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Progression : " + ChatColor.WHITE + 0 + ChatColor.GRAY + " / " + ChatColor.WHITE + 100);
         lore.add("");
         lore.add("§7§m-------§8§m-------§7§m-------");
