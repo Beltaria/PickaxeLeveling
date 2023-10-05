@@ -44,7 +44,6 @@ public class Pickaxe implements Listener {
         levels.put(18, new PickaxeLevel("§dPioche Éthérée", 10, Material.DIAMOND_PICKAXE));
         levels.put(19, new PickaxeLevel("§ePioche Légendaire", 10, Material.DIAMOND_PICKAXE));
         levels.put(20, new PickaxeLevel("§ePioche de Salomon", 10, Material.DIAMOND_PICKAXE));
-
     }
 
     private int getPickaxeLevel(List<String> lore)
@@ -132,10 +131,12 @@ public class Pickaxe implements Listener {
             {
                 if (line.contains("Progression"))
                 {
-                    List<Integer> integers = checkCharacter.getIntegersInString(line);
+                    List<Integer> integers = checkCharacter.getIntegersInStringByWords(line);
 
-                    int firstInteger = integers.get(2);
-                    int secondInteger = integers.get(4);
+//                    int firstInteger = integers.get(2);
+//                    int secondInteger = integers.get(4);
+                    int firstInteger = integers.get(0);
+                    int secondInteger = integers.get(1);
 
                     if (firstInteger < secondInteger)
                     {
@@ -148,8 +149,9 @@ public class Pickaxe implements Listener {
                             player.getInventory().remove(itemStack);
                             player.getInventory().addItem(newItemStack);
                         } else {
-                            integers.set(2, firstInteger);
-                            String newLore = checkCharacter.setIntegersInString(integers, line);
+//                            integers.set(2, firstInteger);
+                            integers.set(0, firstInteger);
+                            String newLore = checkCharacter.setIntegersInStringByWords(integers, line);
                             lore.set(index, newLore);
                         }
                     }
