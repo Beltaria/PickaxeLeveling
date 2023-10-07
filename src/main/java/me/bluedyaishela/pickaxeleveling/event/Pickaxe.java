@@ -3,8 +3,11 @@ package me.bluedyaishela.pickaxeleveling.event;
 import me.bluedyaishela.pickaxeleveling.entity.PickaxeLevel;
 import me.bluedyaishela.pickaxeleveling.utils.CheckCharacter;
 import me.bluedyaishela.pickaxeleveling.utils.CheckPickaxe;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -43,8 +46,8 @@ public class Pickaxe implements Listener {
         levels.put(16, new PickaxeLevel("§9Pioche de Titan", 10, Material.DIAMOND_PICKAXE, "§9", "§1"));
         levels.put(17, new PickaxeLevel("§fPioche §fA§as§bt§fr§aa§bl§fe", 10, Material.DIAMOND_PICKAXE, "§9", "§1"));
         levels.put(18, new PickaxeLevel("§dPioche Éthérée", 10, Material.DIAMOND_PICKAXE, "§a", "§2"));
-        levels.put(19, new PickaxeLevel("§dPioche Légendaire", 10, Material.DIAMOND_PICKAXE, "§d", "§5"));
-        levels.put(20, new PickaxeLevel("§ePioche de Salomon", 10, Material.DIAMOND_PICKAXE, "§a", "§2"));
+        levels.put(19, new PickaxeLevel("§ePioche de Salomon", 10, Material.DIAMOND_PICKAXE, "§a", "§2"));
+        levels.put(20, new PickaxeLevel("§dPioche Légendaire", Material.DIAMOND_PICKAXE, "§d", "§5"));
     }
 
     private int getPickaxeLevel(List<String> lore)
@@ -122,8 +125,14 @@ public class Pickaxe implements Listener {
             }
             if (line.contains("Progression"))
             {
-                String progressionLore = checkCharacter.getNewLoreLevelUp(stringProgression, line);
-                lore.set(index, checkCharacter.setIntegersInStringByWords(integersProgression, progressionLore));
+                if (newLevel == 20)
+                {
+                    String progressionLore = stringProgression.get(0) + "» " + stringProgression.get(1) + "Blocs cassés : " + "§f" + 0;
+                    lore.set(index, progressionLore);
+                } else {
+                    String progressionLore = checkCharacter.getNewLoreLevelUp(stringProgression, line);
+                    lore.set(index, checkCharacter.setIntegersInStringByWords(integersProgression, progressionLore));
+                }
             }
             index++;
         }
@@ -154,12 +163,19 @@ public class Pickaxe implements Listener {
 
             for (String line : lore)
             {
-                if (line.contains("Progression"))
+                if (line.contains("Blocs cassés"))
+                {
+                    List<Integer> listNbBlocks = checkCharacter.getIntegersInStringByWords(line);
+                    int nbBlockMined = listNbBlocks.get(0);
+                    int newBlocksMined = nbBlockMined + 1;
+                    listNbBlocks.set(0, newBlocksMined);
+                    String newLore = checkCharacter.setIntegersInStringByWords(listNbBlocks, line);
+                    lore.set(index, newLore);
+                }
+                else if (line.contains("Progression"))
                 {
                     List<Integer> integers = checkCharacter.getIntegersInStringByWords(line);
 
-//                    int firstInteger = integers.get(2);
-//                    int secondInteger = integers.get(4);
                     int firstInteger = integers.get(0);
                     int secondInteger = integers.get(1);
 
