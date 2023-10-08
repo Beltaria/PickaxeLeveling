@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class Pickaxe implements Listener {
 
-    private Map<Integer, PickaxeLevel> levels = new HashMap<>();
+    public Map<Integer, PickaxeLevel> levels = new HashMap<>();
     private final CheckPickaxe checkPickaxe = new CheckPickaxe();
     private final CheckCharacter checkCharacter = new CheckCharacter();
     private final int maxLevel = 20;
