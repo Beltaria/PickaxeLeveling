@@ -31,24 +31,25 @@ public class ItemManager {
         String pickaxeLightColor = pickaxeLevel.getLight_color();
         String pickaxeDarkColor = pickaxeLevel.getDark_color();
 
-        ItemStack itemStack = new ItemStack(Material.DIAMOND_PICKAXE);
+        ItemStack itemStack = new ItemStack(pickaxeMaterial);
         ItemMeta itemMeta = itemStack.getItemMeta();
 
-        itemMeta.setDisplayName("§7Pioche du débutant");
+        itemMeta.setDisplayName(pickaxeName);
 
         List<String> lore = new ArrayList<>();
-        lore.add("§"+pickaxeLightColor+"§m-------§"+pickaxeDarkColor+"§m-------§"+pickaxeLightColor+"§m-------");
+        lore.add(pickaxeLightColor+"§m-------"+pickaxeDarkColor+"§m-------"+pickaxeLightColor+"§m-------");
         lore.add("");
-        lore.add("§7Cette §8Pioche §7te permet de §8miner");
-        lore.add("§7indéfiniment dans le §8monde minage§7.");
+        lore.add(pickaxeLightColor+"Cette "+pickaxeDarkColor+"Pioche "+pickaxeLightColor+"te permet de "+pickaxeDarkColor+"miner");
+        lore.add(pickaxeLightColor+"indéfiniment dans le "+pickaxeDarkColor+"monde minage"+pickaxeLightColor+".");
         lore.add("");
-        lore.add("§8» §7Niveau : §f1 §7/ §f20");
-        lore.add("§8» §7Progression : §f0 §7/ §f5");
+        lore.add(pickaxeDarkColor+"» "+pickaxeLightColor+"Niveau : §f1 "+pickaxeLightColor+"/ §f20");
+        lore.add(pickaxeDarkColor+"» "+pickaxeLightColor+"Progression : §f0 "+pickaxeLightColor+"/ §f"+pickaxeNecessaryBlocks);
 //        lore.add(ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Progression : " + ChatColor.WHITE + 0 + ChatColor.GRAY + " / " + ChatColor.WHITE + 100);
         lore.add("");
-        lore.add("§7§m-------§8§m-------§7§m-------");
+        lore.add(pickaxeLightColor+"§m-------"+pickaxeDarkColor+"§m-------"+pickaxeLightColor+"§m-------");
 
         itemMeta.setLore(lore);
+        itemMeta.spigot().setUnbreakable(true);
 
         itemStack.setItemMeta(itemMeta);
 
