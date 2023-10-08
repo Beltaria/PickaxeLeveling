@@ -44,6 +44,7 @@ public class ItemManager {
         lore.add("");
         lore.add(pickaxeDarkColor+"» "+pickaxeLightColor+"Niveau : §f1 "+pickaxeLightColor+"/ §f20");
         lore.add(pickaxeDarkColor+"» "+pickaxeLightColor+"Progression : §f0 "+pickaxeLightColor+"/ §f"+pickaxeNecessaryBlocks);
+        lore.add(pickaxeDarkColor+"» "+pickaxeLightColor+"Option : §f1x1");
 //        lore.add(ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Progression : " + ChatColor.WHITE + 0 + ChatColor.GRAY + " / " + ChatColor.WHITE + 100);
         lore.add("");
         lore.add(pickaxeLightColor+"§m-------"+pickaxeDarkColor+"§m-------"+pickaxeLightColor+"§m-------");
