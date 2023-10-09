@@ -101,6 +101,10 @@ public class Pickaxe implements Listener {
         stringProgression.add(light_color);
         stringProgression.add(light_color);
 
+        List<String> stringsOption = new ArrayList<>();
+        stringsOption.add(dark_color);
+        stringsOption.add(light_color);
+
         List<Integer> integersLevel = new ArrayList<>();
         integersLevel.add(newLevel);
         integersLevel.add(maxLevel);
@@ -133,6 +137,13 @@ public class Pickaxe implements Listener {
                     String progressionLore = checkCharacter.getNewLoreLevelUp(stringProgression, line);
                     lore.set(index, checkCharacter.setIntegersInStringByWords(integersProgression, progressionLore));
                 }
+            }
+            if (line.contains("Option"))
+            {
+                List<String> stringsOption2 = new ArrayList<>();
+                stringsOption2.add("1x1");
+                String optionLore = checkCharacter.getNewLoreLevelUp(stringsOption, line);
+                lore.set(index, checkCharacter.setStringsInStringByWords(stringsOption2, optionLore));
             }
             index++;
         }

@@ -1,5 +1,6 @@
 package me.bluedyaishela.pickaxeleveling.event;
 
+import me.bluedyaishela.pickaxeleveling.entity.Options;
 import me.bluedyaishela.pickaxeleveling.utils.CheckPickaxe;
 import me.bluedyaishela.pickaxeleveling.utils.Tools;
 import org.bukkit.entity.Player;
@@ -10,14 +11,41 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PickaxeOptions implements Listener {
+
+    public Map<Integer, Options> optionsMap = new HashMap<>();
 
     private final String __PREFIX__ = "§8[§ePickaxeLeveling§8] » §f";
     private static final CheckPickaxe checkPickaxe = new CheckPickaxe();
     private static final Tools tools = new Tools();
+
+    public PickaxeOptions()
+    {
+        optionsMap.put(1, new Options(true, false, false));
+        optionsMap.put(2, new Options(true, false, false));
+        optionsMap.put(3, new Options(true, false, false));
+        optionsMap.put(4, new Options(true, false, false));
+        optionsMap.put(5, new Options(true, false, false));
+        optionsMap.put(6, new Options(true, false, false));
+        optionsMap.put(7, new Options(true, false, false));
+        optionsMap.put(8, new Options(true, false, false));
+        optionsMap.put(9, new Options(true, true, false));
+        optionsMap.put(10, new Options(true, true, false));
+        optionsMap.put(11, new Options(true, true, false));
+        optionsMap.put(12, new Options(true, true, false));
+        optionsMap.put(13, new Options(true, true, false));
+        optionsMap.put(14, new Options(true, true, false));
+        optionsMap.put(15, new Options(true, true, false));
+        optionsMap.put(16, new Options(true, true, true));
+        optionsMap.put(17, new Options(true, true, true));
+        optionsMap.put(18, new Options(true, true, true));
+        optionsMap.put(19, new Options(true, true, true));
+        optionsMap.put(20, new Options(true, true, true));
+    }
 
     @EventHandler
     public void onPlayerToggleSneak(PlayerInteractEvent event)

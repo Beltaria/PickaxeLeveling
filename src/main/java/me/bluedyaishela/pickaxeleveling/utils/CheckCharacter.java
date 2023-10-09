@@ -42,6 +42,26 @@ public class CheckCharacter {
         return chain;
     }
 
+    public String setStringsInStringByWords(List<String> stringsList, String chain)
+    {
+        String[] words = chain.split(" ");
+        int integersIndex = 0;
+
+        for (int i = 0; i < words.length; i++)
+        {
+            if (words[i].startsWith("§f"))
+            {
+                String value = stringsList.get(integersIndex);
+
+                words[i] = "§f" + value;
+
+                chain = String.join(" ", words);
+                integersIndex++;
+            }
+        }
+        return chain;
+    }
+
     public String getNewLoreLevelUp(List<String> list, String string)
     {
         String[] words = string.split(" ");
